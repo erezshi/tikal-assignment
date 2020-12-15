@@ -13,15 +13,15 @@ In this demo we will provistion jenkins in aws following the setup ci env steps,
 4. terraform apply (or first plan :-) and wait for the job to finish.
 5. Save the adminPasswrod from the terrafom apply output:
    “aws_instance.prod_web[0] (remote-exec): Enter <SOME HASH> to activate jenkins”
-6. get the instance public ip to access jenkins
-  terraform show | grep public_dns 
-7. Put the public-ip:9090
-8. Enter the adminPassword see item 2
+6. get the instance elb dns_name using running terraform show | grep elb
+7. Put the dns_name in browser.
+8. Enter the adminPassword (see item 2)
 9. Install suggested plugins
 10. Set admin credentials 
 11. Manage Jenkins —> Manage plugin —> available --> Global Tool configuration and add maven
 12. Create new pipeline job "script from scm" using this project as git utl and use the jenkinsfile in this repo as pipeline file and run the job
 13. In order to run docker create a pipeline or free style project and add "docker run -d -p 8080:8080 erezshin/docker-maven-demo" to build step.
+   
 
 # Maven Project:
 
@@ -32,4 +32,12 @@ In this demo we will provistion jenkins in aws following the setup ci env steps,
 5. Stop the continer (docker-maven-plugin)
 
 
+# Optionally 
+
+You can view the tomcat page
+Create a pipeline or freestyle project and add "docker run -d -p 8080:8080 erezshin/docker-maven-demo" to build step.
+run terraform show | grep public_dns
+Brows to http://public_dns:8080/helloworld/
+
+# Finally
 Don't forget to run terrafom destroy
