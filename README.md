@@ -18,7 +18,7 @@ In this demo we will provistion jenkins in aws following the setup ci env steps,
 8. Enter the adminPassword (see item 2)
 9. Install suggested plugins
 10. Set admin credentials 
-11. Manage Jenkins —> Manage plugin —> available --> Global Tool configuration and add maven
+11. Manage Jenkins —> Global Tool configuration and add maven
 12. Create new pipeline job "script from scm" using this project as git utl and use the jenkinsfile in this repo as pipeline file and run the job
    
 
