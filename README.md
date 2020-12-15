@@ -34,10 +34,10 @@ In this demo we will provistion jenkins in aws following the setup ci env steps,
 
 # Optionally 
 
-You can view the tomcat page
-Create a pipeline or freestyle project and add "docker run -d -p 8080:8080 erezshin/docker-maven-demo" to build step.
-run terraform show | grep public_dns
-Brows to http://public_dns:8080/helloworld/
+You can view the tomcat page:
+1. Create a pipeline or freestyle project and add "docker run -d -p 8080:8080 erezshin/docker-maven-demo" to build step.
+2. run terraform show | grep public_dns
+3. Brows to http://public_dns:8080/helloworld/
 
 # Finally
 Don't forget to run terrafom destroy
