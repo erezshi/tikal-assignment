@@ -116,12 +116,6 @@ resource "aws_instance" "prod_web" {
       private_key = file("~/.ssh/id_rsa")
       host     = aws_instance.prod_web.0.public_ip
     }
-
-    # depends_on = [aws_instance.prod_web.file]
-  }
-  provisioner "local-exec" {
-    command    = "echo The server's IP address is ${self.private_ip}"
-    on_failure = continue
   }
 
 
