@@ -108,13 +108,6 @@ resource "aws_instance" "prod_web" {
       host     = aws_instance.prod_web.0.public_ip
     }
 
-    # depends_on = [aws_instance.prod_web.file]
-  }
-  provisioner "local-exec" {
-    command    = "echo The server's IP address is ${self.private_ip}"
-    on_failure = continue
-  }
-
 
   vpc_security_group_ids = [
     aws_security_group.prod_web.id
@@ -134,22 +127,4 @@ resource "aws_eip" "prod_web" {
   tags = {
     "Terrafom" : "true"
   }
-}
- 
-resource "aws_elb" "prod_web" {
-  name            = "prod-web"
-  instances       = aws_instance.prod_web.*.id
-  subnets         = [aws_default_subnet.default_az1.id, aws_default_subnet.default_az2.id]
-  security_groups = [aws_security_group.prod_web.id]
-
-  listener {
-    instance_port     = var.default_port
-    instance_protocol = "http"
-    lb_port           = 80
-    lb_protocol       = "http"
-  }
-  tags = {
-    "Terrafom" : "true"
-  }
-
 }
