@@ -1,0 +1,11 @@
+.classpath
+.project
+.settings
+Thumbs.db
+.DS_Store
+/target/
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/destroy.plan
+**/destroy.plan
+**/crash.log
