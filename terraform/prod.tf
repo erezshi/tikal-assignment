@@ -1,4 +1,7 @@
-variable "default_port" {
+variable "jenkins_port" {
+  type = string
+}
+variable "tomcat_port" {
   type = string
 }
 variable "public_key" {
@@ -59,8 +62,14 @@ resource "aws_security_group" "prod_web" {
     cidr_blocks = var.whitelist
   }
    ingress {
-    from_port   = var.default_port
-    to_port     = var.default_port
+    from_port   = var.jenkins_port
+    to_port     = var.jenkins_port
+    protocol    = "tcp"
+    cidr_blocks = var.whitelist
+  }
+    ingress {
+    from_port   = var.tomcat_port
+    to_port     = var.tomcat_port
     protocol    = "tcp"
     cidr_blocks = var.whitelist
   }
