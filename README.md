@@ -23,7 +23,7 @@ In this demo we will provistion jenkins in aws following the setup ci env steps,
 12. Create new pipeline job "script from scm" using this project as git utl and use the jenkinsfile in this repo as pipeline file and run the job
 13. In order to run docker create a pipeline or free style project and add "docker run -d -p 8080:8080 erezshin/docker-maven-demo" to build step.
 
-# Mave Project:
+# Maven Project:
 
 1. build a war (helloworld.war)
 2. Create a docker image and copy the helloworld.war (docker-maven-plugin)
