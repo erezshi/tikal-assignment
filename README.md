@@ -20,7 +20,6 @@ In this demo we will provistion jenkins in aws following the setup ci env steps,
 10. Set admin credentials 
 11. Manage Jenkins —> Manage plugin —> available --> Global Tool configuration and add maven
 12. Create new pipeline job "script from scm" using this project as git utl and use the jenkinsfile in this repo as pipeline file and run the job
-13. In order to run docker create a pipeline or free style project and add "docker run -d -p 8080:8080 erezshin/docker-maven-demo" to build step.
    
 
 # Maven Project:
